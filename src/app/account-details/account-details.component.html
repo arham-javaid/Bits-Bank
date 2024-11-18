@@ -1,0 +1,106 @@
+<div class="container margin-top">
+  <h2 class="mt-3">Account Details</h2>
+  <div class="row">
+    <div class="col-lg-7 col-md-8 col-sm-12">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>ID: {{ accountDetails?._id }}</th>
+            </tr>
+            <tr>
+              <th>Name: {{ accountDetails?.name }}</th>
+            </tr>
+            <tr>
+              <th>Phone: {{ accountDetails?.phone }}</th>
+            </tr>
+            <tr>
+              <th>Email: {{ accountDetails?.email }}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-1"></div>
+    
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>Total Debit: {{ totalDebit }}</td>
+            </tr>
+            <tr>
+              <td>Total Credit: {{ totalCredit }}</td>
+            </tr>
+            <tr>
+              <th>Total Balance: {{ totalBalance }}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+  </div>
+  <div class="row mt-5">
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      <form>
+        <label for="fromDate"><b>From Date:</b></label>
+        <input class="form-control" type="date" id="fromDate" name="fromDate">
+      </form>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      <form>
+        <label for="toDate"><b>To Date:</b></label>
+        <input class="form-control" type="date" id="toDate" name="toDate">
+      </form>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-12 d-flex align-items-end">
+      <button type="button" class="btn btn-secondary mt-2">Submit</button>
+    </div>
+  </div>
+  
+  <div class="table-responsive mt-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Notes</th>
+          <th>Debit</th>
+          <th>Credit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td>{{ transaction.transactionDate | date }}</td>
+          <td>{{ transaction?.transactionType }}</td>
+          <td>{{ transaction.note }}</td>
+          <td *ngIf="transaction.transactionType === 'Debit'">{{ transaction.transactionAmount }}</td>
+          <td *ngIf="transaction.transactionType === 'Credit'">{{ transaction.transactionAmount }}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Total:</td>
+          <td>{{ totalDebit }}</td>
+          <td>{{ totalCredit }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" routerLink="#" aria-label="Previous" style="color: black;">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" routerLink="#" style="color: black;">1</a></li>
+      <li class="page-item"><a class="page-link" routerLink="#" style="color: black;">2</a></li>
+      <li class="page-item"><a class="page-link" routerLink="#" style="color: black;">3</a></li>
+      <li class="page-item">
+        <a class="page-link" routerLink="#" aria-label="Next" style="color: black;">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,54 @@
+    .ErrorMessage {
+        color: red;
+    }
+
+    .btn-active {
+        border: 2px solid #000000;
+        color: #0076f3; /* Text color for active button */
+    }
+    .btn-active:hover {
+    
+        background-color: white;
+    }
+
+    .btn-inactive {
+        border: 2px solid #000000;
+        color: rgb(112, 109, 109); /* Text color for inactive button */
+    } 
+    .btn-inactive:hover {
+        background-color: white; /* Background color for inactive button */
+    } 
+
+    .margin-top{
+        margin-top: 5%;
+    }
+
+    /* Apply shadow and border to the table */
+.table-styled {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px; /* Add rounded corners if desired */
+    overflow: hidden; /* Prevent shadow from being cut off */
+}
+
+/* Optional: Style for table headers */
+.table-styled thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    text-align: left;
+    padding: 12px;
+}
+
+/* Style for table rows */
+.table-styled tbody tr {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.table-styled tbody tr:hover {
+    background-color: #f1f1f1; /* Add hover effect */
+}
+
+/* Style for table data cells */
+.table-styled td {
+    padding: 10px;
+}

@@ -1,0 +1,43 @@
+.container {
+    max-width: 1200px;
+  }
+  
+  .feature-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+  
+  .features-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+  }
+  
+  .features-list {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    color: #34495e;
+    list-style-type: disc;
+  }
+  
+  .features-list li {
+    margin-bottom: 12px;
+  }
+
+  .line {
+    width: 70%; /* Adjust width as needed */
+    height: 3px; /* Thickness of the line */
+    background-color: lightgrey; /* Color of the line */
+    border-radius: 2px; /* Rounded corners for the line */
+    margin: 0 auto; /* Center the line horizontally */
+  }
+  
+  @media (min-width: 992px) {
+    .features-heading, .features-list {
+      text-align: left;
+    }
+  }
+  

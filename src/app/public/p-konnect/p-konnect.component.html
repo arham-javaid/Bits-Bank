@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="buttons">
+        <div class="tab" (click)="setActive('hbl')" [ngClass]="{'active': activeTab === 'hbl'}">
+          HBL Mobile
+          <div class="underline"></div>
+        </div>
+        <div class="tab" (click)="setActive('konnect')" [ngClass]="{'active': activeTab === 'konnect'}">
+          Konnect
+          <div class="underline"></div>
+        </div>
+    </div>
+
+    <div class="content" *ngIf="activeTab === 'hbl'">
+        <div class="left" [@slideInImage]>
+            <img src="../../../assets/hbl-image.png" alt="HBL Mobile Image" width="80%">
+        </div>
+        <div class="right" [@slideInText]>
+            <h1>HBL MOBILE</h1>
+            <div class="con">
+                <h3>BANKING AT YOUR FINGERTIPS</h3>
+            </div>
+            <button>More Details</button>
+        </div>
+    </div>
+
+    <div class="content" *ngIf="activeTab === 'konnect'">
+        <div class="left" [@slideInImage]>
+            <img src="../../../assets/konnect.png" alt="Konnect Image" width="80%">
+        </div>
+        <div class="right" [@slideInText]>
+            <h1>KONNECT</h1>
+            <div class="con">
+                <h3>YOUR PERSONALIZED BANKING EXPERIENCE</h3>
+            </div>
+            <button>More Details</button>
+        </div>
+    </div>
+</div>

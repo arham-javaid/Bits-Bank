@@ -1,0 +1,14 @@
+<div class="container mt-4">
+    <div class="chart-container">
+      <h3 class="mb-3">Debit Records</h3>
+      <div class="bar-chart h-100">
+        <div *ngFor="let data of debitData" class="bar" [style.height]="data.amount + 'px'" [attr.data-label]="data.date + '/' + data.amount"></div>
+      </div>
+  
+      <h3 class="mb-3 mt-5">Credit Records</h3>
+      <div class="bar-chart h-100">
+        <div *ngFor="let data of creditData" class="bar" [style.height]="data.amount + 'px'" [attr.data-label]="data.date + '/' + data.amount"></div>
+      </div>
+    </div>
+  </div>
+  

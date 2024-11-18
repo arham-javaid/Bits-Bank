@@ -1,0 +1,28 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.form-control {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    height: auto;
+    line-height: 1.25; 
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem; 
+    font-size: 1rem;
+  }
+  .form-label{
+    margin-bottom: 3px;
+    margin-top: 7px;
+  }
+  .text-align-center{
+    justify-content: center;
+    align-items: center;
+  }
+
+  

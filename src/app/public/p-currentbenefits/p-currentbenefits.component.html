@@ -1,0 +1,15 @@
+<div class="container mb-5">
+<div class="row text-center">
+    <h2 class="bm">Benefits of Current Account</h2>
+  
+    <div class="col-md-4" *ngFor="let benefit of benefits">
+      <div class="card p-3 shadow-sm h-100">
+        <div class="card-body">
+          <img [src]="benefit.icon" class="benefit-icon mb-3" alt="{{ benefit.title }}">
+          <h5 class="card-title">{{ benefit.title }}</h5>
+          <p class="card-text">{{ benefit.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

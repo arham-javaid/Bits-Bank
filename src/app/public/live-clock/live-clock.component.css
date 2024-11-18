@@ -1,0 +1,16 @@
+.clock-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 10vh;
+    /* background-color: #f8f9fa; */
+  }
+  
+  h1 {
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    background-clip: text;
+    color: transparent;
+  }
+  

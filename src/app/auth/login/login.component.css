@@ -1,0 +1,21 @@
+.forgot-password-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline; 
+}
+
+
+.text-white {
+    color: white;
+}
+
+.card {
+    background: linear-gradient(to right, #344872, #021949);
+    border: none;
+    border-radius: 10px;
+}
+
+

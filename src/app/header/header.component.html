@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light style">
+    <div class="container-md">
+        <a class="nav-link text-white" routerLink="portal">
+            <h2>Umais Petroleum</h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item ml-lg-5">
+                    <a class="nav-link" routerLink="">Public</a>
+                </li>
+                <li class="nav-item ml-lg-5">
+                    <a class="nav-link" routerLink="/Accounts" *ngIf="permissions.Account">Accounts</a>
+                </li>
+                <li class="nav-item ml-lg-5">
+                    <a class="nav-link" routerLink="/transactions" *ngIf="permissions.Transaction">Transactions</a>
+                    <a class="nav-link" routerLink="/portal/accountDetail">Log Book</a>
+                </li>
+                <li class="nav-item ml-lg-5">
+                    <a class="nav-link" routerLink="/portal/Accounts">Accounts</a>
+                </li>
+                <li class="nav-item ml-lg-5">
+                    <a class="nav-link" routerLink="/portal/transactions">Transactions</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Profile
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" routerLink="/reports" *ngIf="permissions.Report">Reports</a></li>
+                        <li><a class="dropdown-item" routerLink="/change">Change Password</a></li>
+                        <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                        <li><a class="dropdown-item" routerLink="/signup">SignUp</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

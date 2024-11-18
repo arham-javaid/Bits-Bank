@@ -1,0 +1,61 @@
+<div class="container col-lg-12 col-md-6 col-sm-8 bg-white p-4 mt-5">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">   
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name:</label>
+        <input type="name" class="form-control" id="name" formControlName="name"
+        [ngClass]="{ 'is-invalid': name?.invalid && name?.touched }">
+        <div class="invalid-feedback" *ngIf="name && name.invalid && name.touched">
+            {{ nameError() }}
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" formControlName="email"
+        [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }">
+        <div class="invalid-feedback" *ngIf="email && email.invalid && email.touched">
+            {{ emailError() }}
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" class="form-control" id="password" formControlName="password"
+        [ngClass]="{ 'is-invalid': password?.invalid && password?.touched }">
+        <div class="invalid-feedback" *ngIf="password && password.invalid && password.touched">
+            {{ passwordError() }}
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password?" class="form-label">Re-enter Password:</label>
+        <input type="password" class="form-control" id="CPassword" formControlName="CPassword"
+        [ngClass]="{ 'is-invalid': CPassword?.invalid && CPassword?.touched }">
+        <div class="invalid-feedback" *ngIf="CPassword && CPassword.invalid && CPassword.touched">
+            {{ CPasswordError() }}
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Select Role:</label>
+        <select class="form-control" id="role" formControlName="role" 
+        [ngClass]="{ 'is-invalid': role?.invalid && role?.touched }">
+       <option value="disable">Select a role</option>
+       <option value="admin">Admin</option>
+       <option value="client">Client</option>
+       <option value="assistant">Assistant</option>
+       <!-- <option *ngFor="let role of Roles" [value]="cl">{{ role?.identifier }}</option> -->
+      </select>
+        <div class="invalid-feedback" *ngIf="role && role.invalid && role.touched">
+          {{ roleError() }}
+        </div>
+      </div>
+      
+      <div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+      <button type="cancel" class="btn btn-primary ms-2">Cancel</button>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12 text-start m-1">
+          Already member? <a routerLink="/login" class="text-muted"><span class="text-primary">Login</span> here</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  

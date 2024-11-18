@@ -1,0 +1,31 @@
+.icon {
+  margin-bottom: 20px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-img-top {
+  height: 200px; 
+  width: 100%;
+  object-fit: cover; 
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+.zoom:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+}

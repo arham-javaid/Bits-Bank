@@ -1,0 +1,42 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+  
+  <div *ngFor="let field of ['firstName', 'lastName', 'email']">
+    <label [for]="field">{{ field | titlecase }}</label>
+    <input [id]="field" [formControlName]="field" [type]="field === 'email' ? 'email' : 'text'" />
+
+    <div *ngIf="dynamicForm.get(field)?.invalid && dynamicForm.get(field)?.touched">
+      <small *ngIf="dynamicForm.get(field)?.hasError('required')">
+        {{ field | titlecase }} is required
+      </small>
+      <small *ngIf="dynamicForm.get(field)?.hasError('minlength')">
+        {{ field | titlecase }} must be at least {{ dynamicForm.get(field)?.errors?.['minlength'].requiredLength }} characters
+      </small>
+      <small *ngIf="dynamicForm.get(field)?.hasError('email')">
+        Please enter a valid email address
+      </small>
+    </div>
+  </div>
+
+  <div formArrayName="additionalFields">
+    <div *ngFor="let additionalField of additionalFields.controls; let i = index" [formGroupName]="i">
+      <label [for]="'name' + i">Additional Field Name</label>
+      <input [id]="'name' + i" formControlName="name" placeholder="Field Name" />
+      <label [for]="'value' + i">Value</label>
+      <input [id]="'value' + i" formControlName="value" placeholder="Value" />
+
+      <div *ngIf="additionalField.invalid && additionalField.touched">
+        <small *ngIf="additionalField.get('name')?.hasError('required')">
+          Field Name is required
+        </small>
+        <small *ngIf="additionalField.get('value')?.hasError('required')">
+          Value is required
+        </small>
+      </div>
+
+      <button type="button" (click)="removeField(i)">Remove</button>
+    </div>
+  </div>
+  
+  <button type="button" (click)="addField()">Add Field</button>
+  <button type="submit" [disabled]="dynamicForm.invalid">Submit</button>
+</form>

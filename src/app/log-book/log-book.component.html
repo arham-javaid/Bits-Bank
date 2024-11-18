@@ -1,0 +1,145 @@
+<div class="container margin-top">
+  <div class="row mb-3 align-items-center">
+    <div class="col-md-7">
+      <h2 class="mt-4">Add Transaction:</h2>
+      <h4 class="text-gray">Your Current Balance is: {{ currentUserBalance }}</h4>
+    </div>
+  </div>
+  <!-- <button type="button" class="btn btn-primary" (click)="openTransactionModal()">Send Money</button> -->
+  <button *ngIf="clientLoggedInRole === 'Client'" type="button" class="btn btn-primary" (click)="openTransactionModal()" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add Phone Number
+  </button>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Transaction Modal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="transactionForm" (ngSubmit)="submitTransactionForm()">
+            <div class="form-group">
+              <label for="phone" class="mb-3">Phone Number:</label>
+              <input type="text" id="phone" class="form-control" formControlName="phone">
+              <div *ngIf="transactionForm.get('phone')?.invalid && transactionForm.get('phone')?.touched" class="ErrorMessage">
+                <div *ngIf="transactionForm.get('phone')?.hasError('required')">Phone Number is required.</div>
+                <div *ngIf="transactionForm.get('phone')?.hasError('minlength')">Must be exactly 11 digits.</div>
+                <div *ngIf="transactionForm.get('phone')?.hasError('maxlength')">Must be exactly 11 digits.</div>
+                <div *ngIf="transactionForm.get('phone')?.hasError('pattern')">Must be a valid phone number.</div>
+              </div>
+            </div>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+            </div>
+          </form>
+        </div>
+          </div>
+    </div>
+  </div>
+ <div class="row justify-content-start">
+    <div class="col-lg-10 col-md-8 col-sm-12 mt-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <form [formGroup]="creditForm" (ngSubmit)="submitCreditForm()">
+            <div class="form-group row" *ngIf="clientLoggedInRole !== 'Client'">
+              <div class="col-sm-12">
+                <label for="name" class="col-sm-2 col-form-label">Name:</label>
+                <select class="form-control custom-select" id="name" formControlName="creditName">
+                  <option value="" disabled selected>Select an account</option>
+                  <option *ngFor="let account of users" [value]="account._id">
+                    {{ account.name }}
+                  </option>
+                </select>
+                <div *ngIf="getcreditName()?.invalid && getcreditName()?.touched" class="ErrorMessage">
+                  {{ creditNameError() }}
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12" *ngIf="clientLoggedInRole == 'Client'">
+              <label for="name" class="col-sm-2 col-form-label">Name:</label>
+              <select class="form-control custom-select" id="name" formControlName="creditName" [value]="TransAccounts.account?._id">
+                <option value="" disabled selected>
+                  Please add an account by phone number
+              </option>
+                <option *ngIf="TransAccounts?.account" [value]="TransAccounts.account._id">
+                  {{ TransAccounts.account.name }}
+                </option>
+              </select>
+              <div *ngIf="getcreditName()?.invalid && getcreditName()?.touched" class="ErrorMessage">
+                {{ creditNameError() }}
+              </div>
+            </div>
+              <div class="form-group row">
+              <div class="col-sm-12">
+                <label for="amount" class="col-sm-2 col-form-label">Amount:</label>
+                <input type="number" class="form-control" id="amount" placeholder="Enter the amount" formControlName="creditAmount">
+                <div *ngIf="getcreditAmount()?.invalid && getcreditAmount()?.touched" class="ErrorMessage">
+                  {{ creditAmountError() }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <label for="note" class="col-sm-2 col-form-label">Note:</label>
+                <textarea class="form-control" id="note" rows="2" placeholder="Enter a note" formControlName="creditNote"></textarea>
+                <div *ngIf="getcreditNote()?.invalid && getcreditNote()?.touched" class="ErrorMessage">
+                  {{ creditNoteError() }}
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="form-group row">
+              <div class="col-sm-12">
+                <label for="transactionDate" class="col-sm-2 col-form-label">Date:</label>
+                <input type="date" class="form-control" id="date" formControlName="transactionDate" [(ngModel)]="commonDate" required>
+                <div *ngIf="getCreditDate()?.invalid && getCreditDate()?.touched" class="ErrorMessage">
+                  {{ creditDateError() }}
+                </div>
+              </div>
+            </div> -->
+
+            <!-- <div class="form-group row"> -->
+              <!-- <div class="col-sm-12">
+                <label for="transactionType" class="col-sm-2 col-form-label text-right">Transaction Type:</label>
+                <div class="col-sm-10">
+                  <div  role="group" aria-label="Basic radio toggle button group">
+             -->
+                    <!-- Show only Credit button if role is Client -->
+                    <!-- <ng-container *ngIf="clientLoggedInRole === 'Client'; else showBoth">
+                      <input type="radio" class="btn-check" name="transactionType" id="creditCard" formControlName="transactionType" value="Credit" (change)="onTransactionTypeChange('Credit')" autocomplete="off">
+                      <label [ngClass]="{'btn-active': transactionType === 'Credit', 'btn-inactive': transactionType !== 'Credit'}" class="btn" for="creditCard">Credit</label>
+                    </ng-container> -->
+            
+                    <!-- Display nothing if client role; otherwise, show both options -->
+                    <!-- <ng-template #showBoth>
+                      <input type="radio" class="btn-check" name="transactionType" id="debitCard" formControlName="transactionType" value="Debit" (change)="onTransactionTypeChange('Debit')" autocomplete="off">
+                      <label [ngClass]="{'btn-active': transactionType === 'Debit', 'btn-inactive': transactionType !== 'Debit'}" class="btn" for="debitCard">Debit</label>
+            
+                      <input type="radio" class="btn-check" name="transactionType" id="creditCard" formControlName="transactionType" value="Credit" (change)="onTransactionTypeChange('Credit')" autocomplete="off">
+                      <label [ngClass]="{'btn-active': transactionType === 'Credit', 'btn-inactive': transactionType !== 'Credit'}" class="btn" for="creditCard">Credit</label>
+                    </ng-template> -->
+            
+                  <!-- </div> -->
+                  <!-- <div *ngIf="getTransactionType()?.invalid && getTransactionType()?.touched" class="ErrorMessage">
+                    {{ transactionTypeError() }}
+                  </div> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            <!-- </div> -->
+            
+
+            <div class="form-group row">
+              <div class="col-sm-12 d-flex justify-content-start">
+                <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                <button type="reset" [routerLink]="['/transactions']" class="btn btn-secondary mt-4 mx-1">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>

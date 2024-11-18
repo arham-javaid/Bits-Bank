@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="mx-3 my-3">
+        <div class="row">
+            <div class="h2">LogBook List</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12 mb-2">
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-sm-12 mb-2 text-end">
+                        <button type="submit" class="btn btn-primary mx-1"><a href="log-book">Add</a></button>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Total Debit</th>
+                            <th scope="col">Total Credit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ getCurrentDate() }}</td>
+                            <td>{{ debitTransactions }}</td>
+                            <td>{{ creditTransactions }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container mt-5 d-flex justify-content-center">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous" style="color: black;">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#" style="color: black;">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#" style="color: black;">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#" style="color: black;">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next" style="color: black;">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

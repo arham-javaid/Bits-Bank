@@ -1,0 +1,71 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 7rem;
+}
+
+.content {
+  text-align: left;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+button {
+  margin-top: 1.5rem;
+}
+
+.lottie {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .section {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  h2 {
+      font-size: 1.8rem;
+  }
+
+  p {
+      font-size: 1rem;
+  }
+
+  .lottie {
+      margin-top: 2rem;
+  }
+}
+
+
+.home-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #c4c6c4;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 24px;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #9ca29c;
+  text-decoration: none;
+}
+
+.home-button i {
+  font-size: 24px;
+}

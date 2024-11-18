@@ -1,0 +1,21 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h3>Transaction Modal</h3>
+    <form [formGroup]="transactionForm" (ngSubmit)="submitTransactionForm()">
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" class="form-control" formControlName="phone">
+        <div *ngIf="transactionForm.get('phone')?.invalid && transactionForm.get('phone')?.touched" class="ErrorMessage">
+          <div *ngIf="transactionForm.get('phone')?.hasError('required')">Phone Number is required.</div>
+          <div *ngIf="transactionForm.get('phone')?.hasError('minlength')">Must be exactly 11 digits.</div>
+          <div *ngIf="transactionForm.get('phone')?.hasError('maxlength')">Must be exactly 11 digits.</div>
+          <div *ngIf="transactionForm.get('phone')?.hasError('pattern')">Must be a valid phone number.</div>
+        </div>
+      </div>
+      <div class="mt-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary ms-2">Close</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+.saving-account-container {
+    min-height: 100vh;
+    color: rgb(12, 12, 12);
+    padding: 0;
+    overflow: hidden;
+}
+
+.saving-account-content h1 {
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.saving-account-content p {
+    font-size: 20px;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.background-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.animated-content {
+    animation: slideRight 1.5s ease-in-out forwards;
+}
+
+.animated-image {
+    animation: slideLeft 1.5s ease-in-out forwards;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.home-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #c4c6c4;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 24px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #9ca29c;
+    text-decoration: none;
+}
+
+.home-button i {
+    font-size: 24px;
+}

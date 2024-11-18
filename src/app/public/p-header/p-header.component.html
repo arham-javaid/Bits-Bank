@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg py-3 fixed-top" [class.scrolled]="isScrolled">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-lg-5 text-dark" href="#">
+      <img src="../../../assets/bitsremove.png" alt="Bits Bank Logo" style="height: 30px; width: 40px; padding: 0; ">Bits Bank
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto me-lg-5">
+        <a class="nav-link" routerLink="/Accounts" *ngIf="permissions?.Account">Accounts</a>
+        <a class="nav-link" routerLink="/transactions" *ngIf="permissions?.Transaction">Transactions</a>
+        <a class="nav-link" routerLink="/reports" *ngIf="permissions?.Report">Reports</a>
+        <a class="nav-link" (click)="detailLog(currentUserId)" *ngIf="permissions?.logBook">Log Book</a>
+        <div>
+          <ul class="list-unstyled">
+            <li class="nav-item dropdown" (mouseenter)="isDropdownOpen = true" (mouseleave)="isDropdownOpen = false">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                aria-expanded="false">
+                <i class="fa fa-user ms-1 fa-1x"></i>
+              </a>
+              <ul class="dropdown-menu glassmorphism" aria-labelledby="navbarDarkDropdownMenuLink"
+                [ngClass]="{'show': isDropdownOpen}">
+                <li><a class="dropdown-item">{{ currentUserName }}</a></li>
+                <li><a class="dropdown-item">{{ currentUserEmail }}</a></li>
+                <hr>
+                <li><a class="dropdown-item" routerLink="/register">Register Now</a></li>
+                <li *ngIf="!currentUserName; else showUserName">
+                  <a class="dropdown-item" routerLink="/p-login">Log In <i class="fa fa-sign-in-alt ps-1"></i></a>
+                </li>
+                <ng-template #showUserName>
+                  <li>
+                    <a class="dropdown-item" (click)="logout()">Logout <i class="fa fa-power-off ps-1"></i></a>
+                  </li>
+                </ng-template>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,48 @@
+<div class="saving-container text-center">
+  <div class="icon-section d-flex justify-content-center">
+      <div class="icon-item" (click)="showContent('overview')" [class.active]="activeContent === 'overview'">
+          <i class="fas fa-info-circle icon-style"></i>
+          <p>OVERVIEW</p>
+      </div>
+      <div class="icon-item" (click)="showContent('fair-treatment')" [class.active]="activeContent === 'fair-treatment'">
+          <i class="fas fa-handshake icon-style"></i>
+          <p>FAIR TREATMENT TO CUSTOMERS</p>
+      </div>
+      <div class="icon-item" (click)="showContent('faqs')" [class.active]="activeContent === 'faqs'">
+          <i class="fas fa-question-circle icon-style"></i>
+          <p>FAQS</p>
+      </div>
+  </div>
+
+  <hr class="divider-line">
+
+  <div class="content-area" *ngIf="activeContent">
+      <div *ngIf="activeContent === 'overview'" class="content-item">
+          <div class="container">
+              <h3>OVERVIEW</h3>
+              <p>
+                  Axis Bank’s Saving Account is designed to provide you with easy access to your funds
+                  while offering competitive interest rates. It’s the perfect way to save and grow your money.
+              </p>
+          </div>
+      </div>
+      <div *ngIf="activeContent === 'fair-treatment'" class="content-item">
+          <div class="container">
+              <h3>FAIR TREATMENT TO CUSTOMERS</h3>
+              <p>
+                  Axis Bank is committed to transparency and fairness, ensuring that all customers receive
+                  unbiased treatment and clear communication about our Saving Account services.
+              </p>
+          </div>
+      </div>
+      <div *ngIf="activeContent === 'faqs'" class="content-item">
+          <div class="container">
+              <h3>FAQS</h3>
+              <p>
+                  Find answers to your most common questions about Axis Bank’s Saving Account,
+                  including how to open an account, minimum balance requirements, and interest calculations.
+              </p>
+          </div>
+      </div>
+  </div>
+</div>

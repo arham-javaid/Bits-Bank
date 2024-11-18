@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="testimonial-section">
+    <h2 class="testimonial-heading">Savings</h2>
+
+    <div class="testimonial-container">
+      <div class="testimonial-arrow left-arrow" (click)="showPreviousTestimonial()">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+
+      <div class="testimonial-card-container">
+        <div *ngFor="let testimonial of getVisibleTestimonials()" class="testimonial-card">
+          <img [src]="testimonial.image" alt="Testimonial Image">
+          <h3>{{ testimonial.heading }}</h3>
+          <p>{{ testimonial.text }}</p>
+          <button class=" btn btn-secondary">Learn More</button>
+        </div>
+      </div>
+
+      <div class="testimonial-arrow right-arrow" (click)="showNextTestimonial()">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+
+    <div class="progress-line">
+      <div class="progress-bar" [style.width.%]="getProgressPercentage()"></div>
+    </div>
+  </div>
+</div>

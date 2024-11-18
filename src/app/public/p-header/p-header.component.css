@@ -1,0 +1,118 @@
+.navbar {
+  background-color: white;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand, .nav-link {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: darkgray;
+}
+
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: darkgray;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-item.dropdown .dropdown-menu {
+  min-width: auto;
+  right: 0;
+  left: auto;
+  margin-top: 2px;
+  border-radius: 5%;
+    background-color: rgba(229, 228, 228, 0.9); /* Light gray background for dropdown */
+  color: black; /* Text color */
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+
+hr {
+  color: black;
+  margin-bottom: 3px;
+}
+.navbar {
+  background-color: #f1f3f2; /* Slightly transparent white */
+  backdrop-filter: blur(1px);
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: #f8f9fa; /* A bit more opaque when scrolled */
+  backdrop-filter: blur(1px);
+}
+.navbar.scrolled:hover {
+  background-color: #f1f3f2; /* A bit more opaque when scrolled */
+  backdrop-filter: blur(1px);
+}
+
+.navbar-brand, .nav-link {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: darkgray;
+}
+
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: darkgray;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-item.dropdown .dropdown-menu {
+  min-width: auto;
+  right: 0;
+  left: auto;
+  margin-top: 2px;
+  border-radius: 5%;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.glassmorphism {
+  background-color: #f1f3f2;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(1px);
+  border-radius: 10px;
+}
+
+hr {
+  color: black;
+  margin-bottom: 3px;
+}

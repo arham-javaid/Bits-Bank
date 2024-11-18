@@ -1,0 +1,64 @@
+.container {
+  padding: 20px;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.row {
+  margin: 0 auto; /* Center the row */
+}
+
+.benefit-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.benefit-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.benefit-description {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+/* Responsive layout */
+@media (min-width: 576px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards */
+  }
+
+  .benefit-card {
+    flex: 1 1 calc(50% - 40px); /* Two cards per row with gap */
+    margin: 20px; /* Space around each card */
+  }
+}
+
+@media (min-width: 992px) {
+  .benefit-card {
+    flex: 1 1 calc(50% - 40px); /* Maintain two cards per row */
+  }
+}

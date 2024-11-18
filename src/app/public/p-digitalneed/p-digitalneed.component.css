@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-heading {
+    font-weight: bold;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.sub-heading {
+    color: #212529;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 1.25rem;
+    color: #6c757d;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .main-heading {
+        font-size: 2rem;
+    }
+
+    .sub-heading {
+        font-size: 1.75rem;
+    }
+
+    .description {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-heading {
+        font-size: 1.75rem;
+    }
+
+    .sub-heading {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}

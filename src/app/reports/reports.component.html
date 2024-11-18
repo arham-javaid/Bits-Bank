@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-between align-items-center mt-3">
+      <h2>Reports</h2>
+      <button (click)="generatePDF()" class="btn btn-primary">Download Report as PDF</button>
+    </div>
+  </div>
+  <br>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Total Debit</th>
+          <th scope="col">Total Credit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td>{{ transaction.date | date:'yyyy-MM-dd' }}</td>
+          <td>{{ transaction.totals?.Credit }}</td>
+          <td>{{ transaction.totals?.Debit }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

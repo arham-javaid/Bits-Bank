@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Aspira:wght@400&display=swap');
+
+h1.display-4 {
+  font-family: 'Aspira-demi', sans-serif;
+  color: #000;
+  font-size: 55px;
+  margin-bottom: 0;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeIn 1s ease-out forwards;
+  font: bold;
+}
+
+p.lead {
+  font-family: 'Aspira', sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  color: #007bff;
+  margin-top: 0;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 2s ease-out forwards, float 7s infinite ease-in-out;
+  height: 140px;
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: #f1f3f2;
+}
+
+.card .bi {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.card:hover .card-title, 
+.card:hover .bi {
+  color: #0e0e0e;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.img-container {
+  position: relative;
+  padding: 20px;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.tp {
+  margin-top: 7rem;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-signup {
+  position: fixed;
+  top: 30%;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px 0 0 40px;
+  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.171);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: -7px 0 20px rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  }
+}

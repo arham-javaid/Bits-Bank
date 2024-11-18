@@ -1,0 +1,7 @@
+<div class="app-container">
+  <div class="content">
+    <app-p-header *ngIf="!hideHeaderFooter"></app-p-header>
+    <router-outlet></router-outlet>
+  </div>
+  <app-p-footer *ngIf="!hideHeaderFooter"></app-p-footer>
+</div>
